@@ -1,0 +1,19 @@
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: html_document
+---
+
+Loading and processing the data
+
+```{r}
+setwd("C:/Users/Daddy 2/Documents/Reproducible Research")
+unzip("repdata-data-activity.zip")
+data <- read.csv("activity.csv", colClasses = c("integer", "Date", "factor"))
+data$month <- as.numeric(format(data$date, "%m"))
+noNA <- na.omit(data)
+rownames(noNA) <- 1:nrow(noNA)
+head(noNA)
+dim(noNA)
+library(ggplot2)
+```
+
